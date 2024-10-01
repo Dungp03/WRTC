@@ -1,126 +1,190 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* General Flex Layout */
+.flex_box {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-body {
-  width: 100%;
-  height: 100%;
-  font-family: Lato, sans-serif;
-  font-size: 1em;
-  line-height: 1.5;
-  background: #025cbd;
-  padding: 1em;
+.flex__left {
+  flex: 1;
+  margin-right: 20px;
 }
 
-h1 {
-  margin: 0.4em 0;
-  display: inline-block;
+.flex__right {
+  flex: 2;
 }
 
-button {
-  color: #fff;
-  background: #025cbd;
-  font-family: Lato, sans-serif;
-  font-size: 1.3em;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  outline: 0;
-}
-
-button:hover {
-  background: rgb(1, 73, 150);
-}
-
-button:active {
-  background: rgb(0, 53, 109);
-}
-
-.container {
-  width: 70%;
-  max-width: 1100px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 20px;
-}
-
-.quizzes {
-  text-align: center;
-  margin: 10px 0;
-}
-
-.quizzes button {
-  margin: 5px 0;
-}
-
-.correct-count {
-  float: right;
-  margin: 0.4em 0;
-  font-size: 1.2em;
-}
-
-.q-container .btn-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 5px;
-  margin: 10px 0;
-}
-
-.q-container .btn-grid button {
-  display: block;
-}
-
-.question {
-  font-weight: 900;
-}
-
-.btn-container {
-  margin: 10px 0;
-}
-
-input[type="text"] {
-  outline: none;
-  border: 1px solid #ccc;
-  font-family: Lato, sans-serif;
+/* Chat box styles */
+#messages {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #cecece;
   padding: 10px;
-  float: left;
-  display: block;
-  width: 70%;
-  height: 40px;
+  background-color: #f8f9fa;
 }
 
-.check-btn {
-  height: 40px;
-  line-height: 40px;
-  padding: 0 10px;
+#messages li {
+  list-style-type: none;
+  padding: 5px 0;
 }
 
-.hide {
+/* Toggle button for chat */
+#toggle-message {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Hidden chat section by default */
+#message-section {
   display: none;
+  position: fixed;
+  bottom: 70px;
+  right: 10px;
+  width: 350px;
+  height: 450px;
+  background-color: white;
+  border: 1px solid #cecece;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
 }
 
-.correct {
-  background: #23a833 !important;
+/* Chat header */
+#message-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
-.wrong {
-  background: #ff3e51 !important;
+/* Chat body */
+#message-body {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f4f4f4;
 }
 
-@media screen and (max-width: 894px) {
-  .container {
-    width: 90%;
-  }
-
-  .q-container .btn-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .correct-count {
-    float: none;
-  }
+/* Input form */
+#message-footer {
+  padding: 10px;
+  background-color: #f8f9fa;
 }
+
+/* Input styling */
+#messageForm .input-group {
+  display: flex;
+  align-items: center;
+}
+
+#messageForm input {
+  flex-grow: 1;
+  margin-right: 5px;
+}
+
+/* Grid layout for multiple video streams */
+#your-id-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns layout */
+  gap: 20px; /* Spacing between videos */
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+#unread-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+
+/* Video stream styling */
+#remoteStream,
+#localStream {
+  background-color: black;
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 350px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Flexbox for icon section */
+.icon-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Icon styling */
+.icon-group {
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.icon-btn {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.icon-btn:hover {
+  color: #007bff;
+}
+
+/* Hidden sections initially */
+#online-user-section, 
+#your-id-content, 
+#message-section {
+  display: none;
+  margin-top: 20px;
+}
+
+/* Position badge over message icon */
+#unread-count {
+  top: -10px;
+  right: -10px;
+  position: absolute;
+}
+
+/* Center form and buttons */
+#your-id-content input,
+#your-id-content button {
+  width: 100%;
+}
+
+/* Style for input form */
+input.form-control {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+/* Style for call button */
+button.btn {
+  margin-top: 10px;
+}
+
+
+
+
+

@@ -6,3 +6,10 @@ var server = PeerServer({
 });
 
 console.log("Srart PeerJS Server");
+server.on("connection", (client) => {
+    console.log(`Client connected: ${client.id}`);
+  });
+  
+  server.on("disconnect", (client) => {
+    console.log(`Client disconnected: ${client.id}`);
+  });

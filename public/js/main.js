@@ -98,15 +98,3 @@ $(document).ready(function() {
    });
 
 });
-
-
-
-////////////////////////////////////
-
-/*const CONFIG_NON_STUN_TURN_SERVER = {
-    host: "127.0.0.1",
-    port: 9090,
-    path: '/peerserver'    
-};
-
-let peer = new Peer('null', CONFIG_NON_STUN_TURN_SERVER);*/
